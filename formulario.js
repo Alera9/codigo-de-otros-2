@@ -61,7 +61,7 @@ function agregarInvitado(nombre, edad, nacionalidad) {
     let lista = document.getElementById("lista-de-invitados")
 
 let elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList = "elemento-lista"
 lista.appendChild(elementoLista)
 
 let spanNombre = document.createElement("span")
