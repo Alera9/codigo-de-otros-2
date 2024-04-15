@@ -1,26 +1,27 @@
-let formulario = document.querySelector("#form"); /*Se cambia var por let*/
+let formulario = document.querySelector("form"); /*Se cambia var por let en todo el script,
+se hace uso del tagname para seleccionar el form*/
+console.log(formulario);
+formulario.onsubmit = function(event) {
 
-formulario.onsubmit = function(e) {
-
-  e.prevent();
+  event.preventDefault();//se usa la palabra event y la función .preventDefault()
   
-  let n = formulario.elements[0]
-  let e = formulario.elements[1]
-  let na = formulario.elements[2]
+  let name = formulario.elements[0]; //Se usa un nombre que identifique la información
+  let age = formulario.elements[1]
+  let nationality = formulario.elements[2]
+  
+  let nombre = name.value
+  let edad = age.value
+  let indexNation = nationality.selectedIndex
 
-  let nombre = n.value
-  let edad = e.value
-
-  let i = na.selectedIndex
-  let nacionalidad = na.options[i].value
+  let nacionalidad = nationality.options[indexNation].value
   console.log(nombre, edad)
   console.log(nacionalidad)
 
   if (nombre.length === 0) {
-    n.classList.add("error")
+    name.classList.add("error")
   }
   if (edad < 18 || edad > 120) {
-    e.classList.add("error")
+    age.classList.add("error")
   }
 
 if (nombre.length > 0 
@@ -36,6 +37,24 @@ botonBorrar.id = "boton-borrar"
 let corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
 document.body.appendChild(botonBorrar);
+
+function daNacionalidad(option){
+  
+  switch(option) {
+    case "ar":
+      return "Argentina";
+      break;
+      case "mx":
+      return "Mexicana";
+      break;
+      case "vnzl":
+      return "Venezolana";
+      break;
+      case "per":
+      return "Peruana";
+      break;
+  }
+}
 
 function agregarInvitado(nombre, edad, nacionalidad) {
 
