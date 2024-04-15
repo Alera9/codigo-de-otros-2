@@ -38,7 +38,7 @@ let corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
 document.body.appendChild(botonBorrar);
 
-function daNacionalidad(option){
+function daNacionalidad(option){ //Se crea funcion para dividir código y hacerlo más legible
   
   switch(option) {
     case "ar":
@@ -57,21 +57,8 @@ function daNacionalidad(option){
 }
 
 function agregarInvitado(nombre, edad, nacionalidad) {
-
-  if (nacionalidad === "ar") {
-    nacionalidad = "Argentina"
-  }
-  else if (nacionalidad === "mx") {
-    nacionalidad = "Mexicana"
-  }
-  else if (nacionalidad === "vnzl") {
-    nacionalidad = "Venezolana"
-  }
-  else if (nacionalidad === "per") {
-    nacionalidad = "Peruana"
-  }
-
-let lista = document.getElementById("lista-de-invitados")
+    nacionalidad = daNacionalidad(nacionalidad);
+    let lista = document.getElementById("lista-de-invitados")
 
 let elementoLista = document.createElement("div")
 elementoLista.classList.added("elemento-lista")
